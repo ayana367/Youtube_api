@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Youtube_api</string>
+    <string name="back">Back</string>
+    <string name="playlist">playlist</string>
+    <string name="fab_button">fab_button</string>
+    <string name="playlists">playlists</string>
+    <string name="image">image</string>
+    <string name="try_again">Try again</string>
+    <string name="no_connection">No connection!!</string>
+</resources>
