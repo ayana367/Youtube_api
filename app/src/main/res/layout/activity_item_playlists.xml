@@ -7,7 +7,7 @@
     tools:context=".iu.playlists.detail.ItemPlaylistsActivity">
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
-        android:id="@+id/containerContent"
+        android:id="@+id/containerLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@android:color/background_light"

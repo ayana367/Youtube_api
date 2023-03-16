@@ -1,7 +1,6 @@
 package com.example.iu.playlists.detail
 
 import android.view.LayoutInflater
-import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
 import com.example.core.network.ext.result.ui.BaseActivity
@@ -26,9 +25,14 @@ class ItemPlaylistsActivity : BaseActivity<ItemViewModel, ActivityItemPlaylistsB
             binding.progressCircular.isVisible = it
         }
         adapterPlaylist = AdapterItem()
-        val  aa =intent.getStringExtra(PlaylistsActivity.KEY)
-        Toast.makeText(this, "$aa", Toast.LENGTH_SHORT).show()
-        viewModel.playlists(aa.toString()).observe(this) {
+        val  itemId = intent.getStringExtra(PlaylistsActivity.KEY)
+
+        binding.containerToolbar.tvBack.setOnClickListener{
+            finish()
+        }
+
+        showToast(itemId.toString())
+        viewModel.playlists(itemId.toString()).observe(this) {
             it.data?.items?.let { it1 -> adapterPlaylist.setItems(it1) }
             when (it.status) {
                 Status.SUCCESS -> {
