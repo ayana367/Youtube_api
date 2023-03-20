@@ -1,62 +1,35 @@
 package com.example.repository
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.liveData
+import com.example.core.network.ext.result.Resource
+import com.example.data.remote.RemoteDataSource
+import com.example.data.entity.model.ItemsItem
+import kotlinx.coroutines.Dispatchers
 
-import android.util.Log
-import androidx.lifecycle.MutableLiveData
-import com.example.BuildConfig
-import com.example.core.network.ext.result.ui.Resource
-import com.example.core.network.ext.result.ui.RetrofitClient
-import com.example.data.local.entity.remote.ApiService
-import com.example.data.local.entity.remote.model.Playlists
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 class Repository {
-    private val apiService: ApiService by lazy {
-        RetrofitClient.create()
+    private val remoteDataSource: RemoteDataSource by lazy {
+        RemoteDataSource()
     }
 
-    fun getPlaylists(): MutableLiveData<Resource<Playlists>> {
-        val data = MutableLiveData<Resource<Playlists>>()
+    fun getPlaylists() = liveData(Dispatchers.IO) {
+        emit(Resource.loading())
+        val response = remoteDataSource.getPlaylist()
+        emit(response)
 
-        data.value = Resource.loading()
-
-        apiService.getPlaylists(
-            "snippet,contentDetails", "UC3IZKseVpdzPSBaWxBxundA", BuildConfig.API_KEY
-        ).enqueue(object : Callback<Playlists> {
-            override fun onResponse(call: Call<Playlists>, response: Response<Playlists>) {
-                if (response.isSuccessful){
-                    data.postValue(Resource.success(response.body()))
-                }
-            }
-            override fun onFailure(call: Call<Playlists>, t: Throwable) {
-                data.value = Resource.error(t.message.toString(),null,null)
-                Log.e("ololo", "${t.message}")
-            }
-        })
-        return data
     }
 
-    fun getItemList(playlistId: String): MutableLiveData<Resource<Playlists>> {
-        val data = MutableLiveData<Resource<Playlists>>()
 
-        data.value = Resource.loading()
+    fun getItemList(playlistId: String) = liveData(Dispatchers.IO) {
+        emit(Resource.loading())
+        val response = remoteDataSource.getPLaylistItem(playlistId)
+        emit(response)
+    }
 
-        apiService.getPlaylistItems(BuildConfig.API_KEY,"snippet,contentDetails",playlistId)
-            .enqueue(object : Callback<Playlists> {
-                override fun onResponse(
-                    call: Call<Playlists>, response: Response<Playlists>
-                ) {
-                    if (response.isSuccessful) {
-                        data.value = Resource.success(response.body())
-                    }
-                }
-                override fun onFailure(call: Call<Playlists>, t: Throwable) {
-                    data.value = Resource.error(t.stackTrace.toString(),null,null)
-                    Log.e("ololo", "${t.stackTrace}")
-                }
-            })
-        return data
+    fun getVideo(videoId:String) : LiveData<Resource<ItemsItem>> =  liveData(Dispatchers.IO){
+        emit(Resource.loading())
+        val response = remoteDataSource.getVideo(videoId)
+        emit(response)
     }
 }

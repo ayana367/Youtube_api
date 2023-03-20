@@ -1,5 +1,6 @@
-package com.example.core.network.ext.result.ui
+package com.example.core.network.ext
 
+import com.example.core.network.ext.result.Resource
 import retrofit2.Response
 
 abstract class BaseDataSource {

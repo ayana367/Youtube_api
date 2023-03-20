@@ -1,5 +1,4 @@
-package com.example.data.local.entity.remote.model
-import android.provider.MediaStore
+package com.example.data.entity.model
 import com.google.gson.annotations.SerializedName
 
 data class Playlists(@SerializedName("kind")
@@ -29,74 +28,74 @@ data class Snippet(@SerializedName("publishedAt")
                     val channelTitle: String = "")
 
 data class Standard(@SerializedName("width")
-    val width: Int = 0,
-    @SerializedName("url")
-    val url: String = "",
-    @SerializedName("height")
-    val height: Int = 0)
+                    val width: Int = 0,
+                    @SerializedName("url")
+                    val url: String = "",
+                    @SerializedName("height")
+                    val height: Int = 0)
 
 data class Thumbnails(@SerializedName("standard")
-    val standard: Standard,
+                      val standard: Standard,
                       @SerializedName("default")
-    val default: Default,
+                      val default: Default,
                       @SerializedName("high")
-    val high: High,
+                      val high: High,
                       @SerializedName("maxres")
-    val maxres: Maxres,
+                      val maxres: Maxres,
                       @SerializedName("medium")
-    val medium: Medium
+                      val medium: Medium
 )
 
 data class PageInfo(@SerializedName("totalResults")
-    val totalResults: Int = 0,
-    @SerializedName("resultsPerPage")
-    val resultsPerPage: Int = 0)
+                    val totalResults: Int = 0,
+                    @SerializedName("resultsPerPage")
+                    val resultsPerPage: Int = 0)
 
 data class Medium(@SerializedName("width")
-    val width: Int = 0,
-    @SerializedName("url")
-    val url: String = "",
-    @SerializedName("height")
-    val height: Int = 0)
+                  val width: Int = 0,
+                  @SerializedName("url")
+                  val url: String = "",
+                  @SerializedName("height")
+                  val height: Int = 0)
 
 data class Maxres(@SerializedName("width")
-    val width: Int = 0,
-    @SerializedName("url")
-    val url: String = "",
-    @SerializedName("height")
-    val height: Int = 0)
+                  val width: Int = 0,
+                  @SerializedName("url")
+                  val url: String = "",
+                  @SerializedName("height")
+                  val height: Int = 0)
 
 data class Localized(@SerializedName("description")
-    val description: String = "",
-    @SerializedName("title")
-    val title: String = "")
+                     val description: String = "",
+                     @SerializedName("title")
+                     val title: String = "")
 
 data class ItemsItem(@SerializedName("snippet")
-    val snippet: Snippet,
+                     val snippet: Snippet,
                      @SerializedName("kind")
-    val kind: String = "",
+                     val kind: String = "",
                      @SerializedName("etag")
-    val etag: String = "",
+                     val etag: String = "",
                      @SerializedName("id")
-    val id: String = "",
+                     val id: String = "",
                      @SerializedName("contentDetails")
-    val contentDetails: ContentDetails
+                     val contentDetails: ContentDetails
 ) : java.io.Serializable
 
 data class High(@SerializedName("width")
-    val width: Int = 0,
-    @SerializedName("url")
-    val url: String = "",
-    @SerializedName("height")
-    val height: Int = 0)
+                val width: Int = 0,
+                @SerializedName("url")
+                val url: String = "",
+                @SerializedName("height")
+                val height: Int = 0)
 
 data class Default(@SerializedName("width")
-    val width: Int = 0,
-    @SerializedName("url")
-    val url: String = "",
-    @SerializedName("height")
-    val height: Int = 0)
+                   val width: Int = 0,
+                   @SerializedName("url")
+                   val url: String = "",
+                   @SerializedName("height")
+                   val height: Int = 0)
 
 data class ContentDetails(@SerializedName("itemCount")
-    val itemCount: Int = 0)
+                          val itemCount: Int = 0)
 

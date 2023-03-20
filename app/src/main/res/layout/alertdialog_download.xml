@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="0dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/bot"
+            android:layout_marginTop="@dimen/bot"
+            android:text="@string/select_video_quality"
+            android:textColor="@color/black"
+            android:textSize="@dimen/size"
+            android:textStyle="bold" />
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/r_m_t"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:id="@+id/one"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/card"
+                android:text="@string/_1080p"
+                android:paddingStart="@dimen/xx"
+                android:layout_marginTop="@dimen/hod"
+                android:buttonTint="@color/red"/>
+
+            <RadioButton
+                android:id="@+id/two"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/card"
+                android:text="@string/_720p"
+                android:buttonTint="@color/red"
+                android:paddingStart="@dimen/xx"
+                android:layout_marginTop="@dimen/m_t" />
+
+            <RadioButton
+                android:id="@+id/three"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/m_t"
+                android:text="@string/_480p"
+                android:buttonTint="@color/red"
+                android:paddingStart="@dimen/xx"
+                android:layout_marginTop="@dimen/card" />
+
+        </RadioGroup>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnM_down"
+            android:layout_width="@dimen/materialB_w"
+            android:layout_height="@dimen/materialB_h"
+            android:layout_marginStart="@dimen/bot"
+            android:layout_marginTop="@dimen/materialB_mT"
+            android:layout_marginEnd="@dimen/bot"
+            android:backgroundTint="@color/red"
+            android:text="@string/download"
+            android:textAllCaps="false" />
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

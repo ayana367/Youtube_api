@@ -1,4 +1,4 @@
-package com.example.core.network.ext.result.ui
+package com.example.core.network.ext.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.MutableLiveData

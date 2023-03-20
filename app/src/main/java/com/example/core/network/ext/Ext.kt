@@ -1,4 +1,4 @@
-package com.example.core.network.ext.result.ui
+package com.example.core.network.ext
 
 import android.content.Context
 import android.net.ConnectivityManager

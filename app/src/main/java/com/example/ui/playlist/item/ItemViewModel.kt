@@ -1,10 +1,10 @@
-package com.example.iu.playlists.detail
+package com.example.ui.playlist.item
 
 import androidx.lifecycle.LiveData
 import com.example.App
-import com.example.core.network.ext.result.ui.BaseViewModel
-import com.example.core.network.ext.result.ui.Resource
-import com.example.data.local.entity.remote.model.Playlists
+import com.example.core.network.ext.result.Resource
+import com.example.core.network.ext.ui.BaseViewModel
+import com.example.data.entity.model.Playlists
 
 class ItemViewModel : BaseViewModel() {
     fun playlists(playlistId: String): LiveData<Resource<Playlists>> {

@@ -31,4 +31,21 @@
     <dimen name="j">276dp</dimen>
     <dimen name="uu">32dp</dimen>
     <dimen name="oo">32dp</dimen>
+    <dimen name="size">25sp</dimen>
+    <dimen name="r_m_t">50dp</dimen>
+    <dimen name="m_t">22dp</dimen>
+    <dimen name="materialB_w">255dp</dimen>
+    <dimen name="materialB_h">45dp</dimen>
+    <dimen name="materialB_mT">216dp</dimen>
+    <dimen name="bar_l">300dp</dimen>
+    <dimen name="zero">0dp</dimen>
+    <dimen name="down_btn">40dp</dimen>
+    <dimen name="pad">12dp</dimen>
+    <dimen name="df">40dp</dimen>
+    <dimen name="rf">30dp</dimen>
+    <dimen name="tyu">110dp</dimen>
+    <dimen name="po">15dp</dimen>
+    <dimen name="jk">10dp</dimen>
+    <dimen name="lo">180dp</dimen>
+    <dimen name="pi">140dp</dimen>
 </resources>

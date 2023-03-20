@@ -1,19 +1,19 @@
-package com.example.iu.playlists.detail
+package com.example.ui.playlist.item
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
-import com.example.core.network.ext.result.ui.loadImage
-import com.example.data.local.entity.remote.model.ItemsItem
+import com.example.core.network.ext.loadImage
+import com.example.data.entity.model.ItemsItem
 import com.example.databinding.ItemPlaylistsBinding
 
 
-class AdapterItem: RecyclerView.Adapter<AdapterItem.ViewHolder>() {
+class AdapterItem(private val onClick:(ItemsItem)->Unit): RecyclerView.Adapter<AdapterItem.ViewHolder>() {
 
     private val itemsItem = arrayListOf<ItemsItem>()
 
-    inner class ViewHolder(private val binding: ItemPlaylistsBinding) :
+    inner class ViewHolder(private  val binding: ItemPlaylistsBinding) :
         RecyclerView.ViewHolder(binding.root) {
         @SuppressLint("SetTextI18n")
         fun onBind(item: ItemsItem) {
@@ -21,6 +21,9 @@ class AdapterItem: RecyclerView.Adapter<AdapterItem.ViewHolder>() {
             binding.tvDesk.text = item.snippet.publishedAt
             binding.ivItem.loadImage(item.snippet.thumbnails.default.url)
             binding.constBar.isVisible = false
+            itemView.setOnClickListener{
+                onClick(item)
+            }
         }
     }
 

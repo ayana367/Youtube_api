@@ -1,16 +1,16 @@
-package com.example.iu.playlists
+package com.example.ui.playlist
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.core.network.ext.result.ui.Resource
-import com.example.core.network.ext.result.ui.loadImage
+import com.example.core.network.ext.loadImage
 import com.example.databinding.ItemPlaylistsBinding
-import com.example.data.local.entity.remote.model.ItemsItem
-import com.example.data.local.entity.remote.model.Playlists
+import com.example.data.entity.model.ItemsItem
+import com.example.data.entity.model.Playlists
+import com.example.core.network.ext.result.Resource
 
-class AdapterPlaylist(private val playlists: Resource<Playlists>, private val onClick:(ItemsItem)->Unit):RecyclerView.Adapter<AdapterPlaylist.ViewHolder>() {
+class AdapterPlaylist(private val playlists: Resource<Playlists>, private val onClick:(String, ItemsItem)->Unit):RecyclerView.Adapter<AdapterPlaylist.ViewHolder>() {
 
     inner class ViewHolder(private val binding: ItemPlaylistsBinding):RecyclerView. ViewHolder(binding.root) {
         @SuppressLint("SetTextI18n")
@@ -19,7 +19,7 @@ class AdapterPlaylist(private val playlists: Resource<Playlists>, private val on
             binding.tvDesk.text = item.contentDetails.itemCount.toString()+ " video series"
             binding.ivItem.loadImage(item.snippet.thumbnails.default.url)
             itemView.setOnClickListener {
-                onClick(item)
+                onClick(binding.tvTitle.text.toString(),item)
             }
         }
     }

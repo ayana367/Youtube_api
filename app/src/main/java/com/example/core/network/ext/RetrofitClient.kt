@@ -1,7 +1,7 @@
-package com.example.core.network.ext.result.ui
+package com.example.core.network.ext
 
+import com.example.data.remote.ApiService
 import com.example.BuildConfig
-import com.example.data.local.entity.remote.ApiService
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit

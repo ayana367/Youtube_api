@@ -1,4 +1,4 @@
-package com.example.core.network.ext.result.ui
+package com.example.core.network.ext.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater

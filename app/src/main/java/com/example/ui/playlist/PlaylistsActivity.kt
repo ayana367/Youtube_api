@@ -1,22 +1,22 @@
-package com.example.iu.playlists
+package com.example.ui.playlist
 
 import android.content.Intent
 import android.view.LayoutInflater
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
-import com.example.R
-import com.example.core.network.ext.result.ui.BaseActivity
-import com.example.core.network.ext.result.ui.Status
-import com.example.core.network.ext.result.ui.isNetworkConnected
-import com.example.core.network.ext.result.ui.showToast
+import com.example.*
+import com.example.core.network.ext.isNetworkConnected
 import com.example.databinding.PlayalistsMainBinding
-import com.example.data.local.entity.remote.model.ItemsItem
-import com.example.iu.playlists.detail.ItemPlaylistsActivity
+import com.example.data.entity.model.ItemsItem
+import com.example.core.network.ext.ui.BaseActivity
+import com.example.core.network.ext.result.Status
+import com.example.core.network.ext.showToast
+import com.example.ui.playlist.item.ItemPlaylistsActivity
 import com.example.util.InternetConnectivity
 
 
-class PlaylistsActivity : BaseActivity<PlaylistsViewModel,PlayalistsMainBinding>() {
+class PlaylistsActivity : BaseActivity<PlaylistsViewModel, PlayalistsMainBinding>() {
 
     private lateinit var adapterPlaylist : AdapterPlaylist
     private val registerForActivity =
@@ -57,9 +57,11 @@ class PlaylistsActivity : BaseActivity<PlaylistsViewModel,PlayalistsMainBinding>
         }
     }
 
-    private fun itemClick(itemsItem: ItemsItem) {
+    private fun itemClick(title:String,itemsItem: ItemsItem) {
         val i = Intent(this, ItemPlaylistsActivity::class.java)
-        i.putExtra(KEY,itemsItem.id)
+        i.putExtra(ID,itemsItem.id)
+        i.putExtra(KEY,title)
+        i.putExtra(IMAGE,itemsItem.snippet.thumbnails.default.url)
         registerForActivity.launch(i)
     }
 
@@ -84,6 +86,8 @@ class PlaylistsActivity : BaseActivity<PlaylistsViewModel,PlayalistsMainBinding>
     }
 
     companion object{
-        const val KEY = "key"
+        const val ID = "key"
+        const val KEY = "title"
+        const val IMAGE = "image"
     }
 }

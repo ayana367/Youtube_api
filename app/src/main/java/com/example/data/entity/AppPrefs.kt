@@ -1,4 +1,4 @@
-package com.example.data.local.entity.remote
+package com.example.data.entity
 
 import android.content.Context
 
